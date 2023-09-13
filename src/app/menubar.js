@@ -6,7 +6,6 @@ import { FiHome, FiSearch, FiPlusSquare, FiHeart, FiUser } from 'react-icons/fi'
 import { RiMovie2Line } from 'react-icons/ri';
 import { PiChatsCircle } from 'react-icons/pi';
 
-
 const MenuBarContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -55,26 +54,26 @@ const MenuBar = () => {
         </a>
       </MenuBox>
       <MenuBox>
-        <a href='/movie'>
+        <a href='/community'>
           <MenuIcon>
             <PiChatsCircle />
           </MenuIcon>
         </a>
       </MenuBox>
-      {/* <MenuBox>
+      <MenuBox>
       <a href='/search'>
       <MenuIcon>
         <FiSearch />
       </MenuIcon>
       </a>
-      </MenuBox> */}
-      <MenuBox>
+      </MenuBox>
+      {/* <MenuBox>
       <a href='/plusSquare'>
       <MenuIcon>
         <FiPlusSquare />
       </MenuIcon>
       </a>
-      </MenuBox>
+      </MenuBox> */}
       <MenuBox>
       <a href='/heart'>
       <MenuIcon>

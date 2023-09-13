@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import MenuBar from '../menubar';
 import { GoHeart } from 'react-icons/go';
 import { SlBubble } from 'react-icons/sl';
+import { BiEditAlt } from 'react-icons/bi';
 import { Container } from 'postcss';
 
 const ContainerBox = styled.div`
@@ -88,6 +89,7 @@ const ActionButton = styled.button`
   margin-right: 15px;
   cursor: pointer;
   color : white;
+  position: relative;
 `;
 
 const Head = styled.div`
@@ -118,13 +120,6 @@ const LankNum = styled.span`
   font-size : 17px;
 `;
 
-const Poster = styled.img`
-width: 100%;
-height: 100%;
-object-fit: cover;
-box-shadow: 1px 3px 8px -1px #1c1c1c;
-`;
-
 const Hr = styled.hr`
   border : none;
   border-bottom : 1px solid #756f7f;
@@ -146,20 +141,30 @@ const A = styled.a`
   text-decoration: none;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 185px));
-  grid-gap: 15px;
-  padding: 0 5px;
+const EditBtn = styled.div`
+    font-size: 26px;
+    margin-right: 15px;
+    cursor: pointer;
+    color: white;
+    background: #4d4653;
+    display: inline-block;
+    position: fixed;
+    border-radius: 100%;
+    padding: 2px 10px;
+    line-height: 29px;
+    padding-top: 8px;
+    border: 2px solid #7e7783;
+    opacity: 0.9;
+    bottom: 72px;
+    right: 1px;
 `;
 
-const Grid2 = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 185px));
-  grid-gap: 15px;
-  padding: 0 5px;
-  text-align : center;
-`;
+const Num = styled.span`
+    font-size: 15px;
+    position: absolute;
+    top: 4px;
+    left: 35px;
+`
 
 export default function Home(){
 
@@ -208,17 +213,14 @@ export default function Home(){
   return (
     <div style={{fontSize:'15px'}}>
       <ContainerBox>
-        <Head>
+        <EditBtn ><A href='/plusSquare'><BiEditAlt /></A></EditBtn>
+        {/* <Head>
             <div><a> 오늘 뭐 볼래¿</a></div>
-        </Head>
+        </Head> */}
+        <h2><i>COMMUNITY</i></h2>
         <Lank>
-            <LankTitle><b>오늘의 랭킹 🏆</b></LankTitle>
-              <LankMTitle>🎬 MOVIE</LankMTitle>
-              <LankBody><div><Grid><LankNum><b><i>1 🥇</i></b></LankNum><LankNum><b><i>2 🥈</i></b></LankNum><LankNum><b><i>3 🥉</i></b></LankNum></Grid> </div></LankBody>
-              <LankBody><div><Grid><A href='#'><Poster src="https://i.namu.wiki/i/aRAQu813Cdn2FJ5Uo3bxqMPqxGnQX7qSHbGsQiiKBbzruZKKKXOjBmVQuietbkSvq54sGhe7RFKa16HqIsLyFQ.webp"></Poster></A><A href='#'><Poster src="https://t1.daumcdn.net/movie/72cfc7293390c63db16779b67097d8703d2a5628"></Poster></A><A href='#'><Poster src="https://upload.wikimedia.org/wikipedia/ko/2/23/%EC%BA%90%EC%B9%98_%EB%AF%B8_%EC%9D%B4%ED%94%84_%EC%9C%A0_%EC%BA%94_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg"></Poster></A></Grid></div></LankBody>
-              <LankBody><div><Grid2><div><A href='#'>엘리멘탈</A></div><div><A href='#'>헤어질 결심</A></div><div><A href='#'>캐치 미 이프 유 캔</A></div></Grid2></div></LankBody>
-              <Hr></Hr>
-              <LankMTitle>📝 POST</LankMTitle>
+            <LankTitle><b>인기글 🏆</b></LankTitle>
+              <LankMTitle></LankMTitle>
               <LankBody><div><LankNum><b><i>1</i></b></LankNum> 　<A href='#'><PostSpan>[추천]</PostSpan> 엘리멘탈 잼써요</A></div></LankBody>
               <LankBody><div><LankNum><b><i>2</i></b></LankNum> 　<A href='#'><PostSpan>[리뷰]</PostSpan> 헤결 인생 영화라더니</A></div></LankBody>
               <LankBody><div><LankNum><b><i>3</i></b></LankNum> 　<A href='#'><PostSpan>[추천]</PostSpan> 캐유캔 넷플릭스에서 이번 달까지래요</A></div></LankBody>
@@ -236,8 +238,8 @@ export default function Home(){
             <PostImage src={post.imageUrl} alt="Post" />
             <PostContent>{post.content}</PostContent>
             <PostActions>
-              <ActionButton><GoHeart /></ActionButton>
-              <ActionButton><SlBubble /></ActionButton>
+              <ActionButton><GoHeart /> <Num>5</Num> </ActionButton>
+              <ActionButton><SlBubble /> <Num>3</Num> </ActionButton>
             </PostActions>
           </Post>
         ))}

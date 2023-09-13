@@ -140,7 +140,9 @@ export default function Search(){
         />
         <Best>
           <BestTag>인기 태그</BestTag>
+          <Tag><A href='#'><Sharp>#</Sharp> 넷플릭스</A></Tag>
           <Tag><A href='#'><Sharp>#</Sharp> 판타지</A></Tag>
+          <Tag><A href='#'><Sharp>#</Sharp> 왓챠</A></Tag>
           <Tag><A href='#'><Sharp>#</Sharp> 스릴러</A></Tag>
           <Tag><A href='#'><Sharp>#</Sharp> 로맨스</A></Tag>
           <Tag><A href='#'><Sharp>#</Sharp> 액션</A></Tag>
