@@ -6,28 +6,30 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 const Container = styled.div`
-  padding: 20px;
+  width : 400px;
+  margin : 0 auto;
 `;
 
 const Form = styled.form``;
 
-const Input = styled.input`
-  display: block;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 0 0 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
+// const Input = styled.input`
+//   display: block;
+//   width: 100%;
+//   padding: 12px 20px;
+//   margin: 0 0 20px;
+//   box-sizing: border-box;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+// `;
 
 const Label = styled.label`
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  margin-top : 20px;
 `;
 
 const Button = styled.button`
-  background-color: #4caf50;
+  background-color: #5c4571;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -35,9 +37,10 @@ const Button = styled.button`
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 30px 0px;
   cursor: pointer;
   border-radius: 4px;
+  width : 100%
 `;
 
 const SocialShare = styled.div`
@@ -68,6 +71,22 @@ const SocialIcon = styled.div`
     background-color: #4c70ba;
   }
 `;
+
+const Input = styled.input`
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 15px;
+  background: #483e51;
+  color: white;
+  width : 92%;
+  box-shadow: 2px 3px 8px -2px #1c1c1c;
+
+    &:focus{
+        outline: none;
+    }
+`;
+
 export default function PlusSquare(){
   const [file, setFile] = useState(null);
   const [crop, setCrop] = useState({ aspect: 1 });
@@ -103,7 +122,7 @@ export default function PlusSquare(){
     <div>
       <Container>
         <Form onSubmit={handleSubmit}>
-          <Label htmlFor="file-input">Upload a photo or video:</Label>
+          <Label htmlFor="file-input">썸네일 선택</Label>
           <Input
             type="file"
             id="file-input"
@@ -119,23 +138,19 @@ export default function PlusSquare(){
             onComplete={onCropComplete}
             />
             )}
-            <Label htmlFor="caption">Caption:</Label>
-            <Input type="text" id="caption" placeholder="Write a caption..." />
-            <Label htmlFor="location">Location:</Label>
+            <Label htmlFor="caption">제목</Label>
+            <Input type="text" id="caption" placeholder="제목" />
+            <Label htmlFor="location">내용</Label>
             <Input
                      type="text"
                      id="location"
-                     placeholder="Add a location..."
+                     placeholder="내용"
                    />
-            <Label htmlFor="tags">Tag Users:</Label>
-            <Input
-                     type="text"
-                     id="tags"
-                     placeholder="Tag users by their username..."
-                   />
-            <Button type="submit">Post</Button>
+            <Label htmlFor="tags">태그 선택</Label>
+
+            <Button type="submit">등록</Button>
             </Form>
-            <SocialShare>
+            {/* <SocialShare>
             <SocialIcon onClick={() => handleSocialShare('facebook')}>
             <FaFacebookF />
             </SocialIcon>
@@ -145,7 +160,7 @@ export default function PlusSquare(){
             <SocialIcon onClick={() => handleSocialShare('instagram')}>
             <FaInstagram />
             </SocialIcon>
-            </SocialShare>
+            </SocialShare> */}
             </Container>
             <MenuBar />
             </div>

@@ -33,6 +33,7 @@ const MenuIcon = styled.div`
   
   &:hover {
     color: #ccc;
+    transition: color 0.2s ease-in-out;
   }
 `;
 

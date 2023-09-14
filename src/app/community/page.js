@@ -1,11 +1,38 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'; // @emotion/styled를 사용하는 경우 유지하십시오
 import MenuBar from '../menubar';
 import { GoHeart } from 'react-icons/go';
 import { SlBubble } from 'react-icons/sl';
-import { BiEditAlt } from 'react-icons/bi';
 import { Container } from 'postcss';
+import { keyframes } from '@emotion/react';
+import { BiEditAlt } from 'react-icons/bi';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+`;
+
+const Animated1 = styled.div`
+  animation: ${fadeIn} 2s ease;
+  animation-delay: 0s;
+`;
+const Animated2 = styled.div`
+  animation: ${fadeIn} 2s ease;
+  animation-delay: 0s;
+`;
+const Animated3 = styled.div`
+  animation: ${fadeIn} 2s ease;
+  animation-delay: 0s;
+`;
 
 const ContainerBox = styled.div`
 @font-face {
@@ -15,6 +42,17 @@ const ContainerBox = styled.div`
   font-style: normal;
 }
 font-family: 'KOTRA_GOTHIC';
+.btn{
+  width: 50px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: #5c4571;
+  box-shadow: 2px 3px 8px -2px #1c1c1c;
+  cursor: pointer;
+  margin: 0 10px;
+  }
 `;
 
 const Lank = styled.div`
@@ -23,8 +61,9 @@ const Lank = styled.div`
   background: #29252d;
   border-radius: 14px;
   padding: 20px;
-  margin-top: 32px;
+  margin-top: 14px;
   box-shadow: 1px 4px 9px -2px #2b2a2a;
+  min-height: 180px;
 `;
 
 const Feed = styled.div`
@@ -46,8 +85,7 @@ const PostHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
-  border-bottom: 1px solid #efefef;
+  padding: 6px 5px 20px 23px;
 `;
 
 const User = styled.div`
@@ -56,14 +94,23 @@ const User = styled.div`
 `;
 
 const Avatar = styled.img`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  margin-right: 10px;
+  width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 7px;
+`;
+
+const CAvatar = styled.img`
+      width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: absolute;
+    top: -2px;
+    left: 21px;
 `;
 
 const Username = styled.span`
-  font-weight: 600;
+      font-size: 14px;
 `;
 
 const PostImage = styled.img`
@@ -83,7 +130,7 @@ const PostActions = styled.div`
 `;
 
 const ActionButton = styled.button`
-  background: none;
+   background: none;
   border: none;
   font-size: 23px;
   margin-right: 15px;
@@ -120,6 +167,13 @@ const LankNum = styled.span`
   font-size : 17px;
 `;
 
+const Poster = styled.img`
+width: 100%;
+height: 100%;
+object-fit: cover;
+box-shadow: 1px 3px 8px -1px #1c1c1c;
+`;
+
 const Hr = styled.hr`
   border : none;
   border-bottom : 1px solid #756f7f;
@@ -141,6 +195,120 @@ const A = styled.a`
   text-decoration: none;
 `;
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 185px));
+  grid-gap: 15px;
+  padding: 0 5px;
+`;
+
+const Grid2 = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 185px));
+  grid-gap: 15px;
+  padding: 0 5px;
+  text-align : center;
+`;
+
+const PostTitle = styled.div`
+  padding: 23px 23px 17px 24px;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+const Num = styled.span`
+  font-size: 15px;
+  position: absolute;
+  top: 4px;
+  left: 35px;
+`;
+
+const PostCommentHead = styled.div`
+  position: relative;
+  min-height: 100px;
+  padding-bottom : 10px;
+`;
+
+const PostComment = styled.div`
+  position: relative;
+`;
+
+const CUser = styled.div`
+  margin: 19px 34px 19px 56px;
+
+  .cUdate{
+    display: inline-block;
+    float: right;
+    font-size: 12px;
+    font-weight: 100;
+    color: #a7a7a7;
+    line-height: 21px;
+  }
+`;
+
+const CUsername = styled.span`
+  margin-right : 10px;
+`;
+
+const Comment = styled.div`
+  margin : 8px 22px;
+  font-size : 17px;
+`;
+
+const Input = styled.input`
+  border: none;
+  border-radius: 4px;
+  height: 35px;
+  padding: 0 15px;
+  background: #483e51;
+  color: white;
+  width: 80%;
+  box-shadow: 2px 3px 8px -2px #1c1c1c;
+
+    &:focus{
+        outline: none;
+    }
+`;
+
+const CommentPut = styled.div`
+  display: flex;
+  padding: 0 10px 18px 23px;
+`;
+
+const Udate = styled.div`
+  display: inline-block;
+  float: right;
+  font-size: 13px;
+  font-weight: 100;
+  color: #a7a7a7;
+  line-height: 28px;
+`;
+
+const PostTag = styled.div`
+  margin: 10px 17px;
+
+  .sharp{
+    font-size: 15px;
+    color: darkgrey;
+    font-weight: bold;
+    background: #38323d;
+    padding: 4px 8px 3px 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+`;
+
+const PostTagItem = styled.div`
+  display: inline-block;
+    background-color: #38323d;
+    padding: 5px 9px 4px 9px;
+    border-radius: 9px;
+    margin: 3px 3px;
+    font-size: 12px;
+    color: #ded6e3;
+    box-shadow: 2px 3px 7px -3px #212121;
+`;
+
 const EditBtn = styled.div`
     font-size: 26px;
     margin-right: 15px;
@@ -159,48 +327,149 @@ const EditBtn = styled.div`
     right: 1px;
 `;
 
-const Num = styled.span`
-    font-size: 15px;
-    position: absolute;
-    top: 4px;
-    left: 35px;
-`
-
 export default function Home(){
 
   const [posts, setPosts] = useState([]);
 
-  // Replace this function with a real API call
+  // 댓글창 열림/닫힘 상태 관리
+  const [commentOpen, setCommentOpen] = useState(false);
+  // 현재 선택된 게시물의 ID를 저장
+  const [selectedPostId, setSelectedPostId] = useState(null);
+
+  const [showAnimated1, setShowAnimated1] = useState(false);
+  const [showAnimated2, setShowAnimated2] = useState(false);
+  const [showAnimated3, setShowAnimated3] = useState(false);
+
   useEffect(() => {
-    // Fetch posts from API here
+    setTimeout(() => {
+      setShowAnimated1(true);
+    });
+
+    setTimeout(() => {
+      setShowAnimated2(true);
+    }, 500);
+
+    setTimeout(() => {
+      setShowAnimated3(true);
+    }, 1000);
+  }, []);
+
+  const openComment = (postId) => {
+    setSelectedPostId(postId);
+    setCommentOpen(true);
+  };
+
+  const closeComment = () => {
+    setSelectedPostId(null);
+    setCommentOpen(false);
+  };
+
+  useEffect(() => {
     const fetchPosts = async () => {
       const dummyPosts = [
         {
           id: 1,
           user: {
-            username: 'bongsoon2',
-            avatar: '/image/bongsoon.jpg',
+            username: '꿀호떡',
+            avatar: '/image/mang.jpg',
           },
-          imageUrl: '/image/bongsoon.jpg',
-          content : "마이 네임 이즈 봉순",
+          imageUrl: 'https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbuodWX%2FbtrVEqIBKnf%2Fs5fZUvcXwkChk0aFrm38GK%2Fimg.gif',
+          storyHead : "추천",
+          title : "나는요 완젼히 붕괴됐서요",
+          content : "지베 가고 십어요",
+          Udate : "2분 전",
+          commentCnt : 1,
+          likeCnt : 3,
+          comment: [
+            {
+              username: '내가그렇게나쁩니가',
+              avatar: 'https://img.hankyung.com/photo/202205/01.29874054.1.jpg',
+              comm: '전적으로 동감',
+              cUdate: "30초 전"
+            }
+          ],
+          tag : ["범죄","멜로","로맨스","넷플릭스","왓챠","드라마","티빙","웨이브"]
         },
         {
           id: 2,
           user: {
-            username: 'user2',
-            avatar: 'https://via.placeholder.com/32',
+            username: 'bongsoon2',
+            avatar: '/image/bongsoon.jpg',
           },
-          imageUrl: 'data:image/jpeg;base64,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',
-          content : "집에 가고 싶다",
+          imageUrl: 'https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/bKrs/image/ZcK48STGL2PfaDpfeSFhyf6eD80.gif',
+          storyHead : "추천",
+          title : "엘리멘탈 잼써요",
+          content : "감독이 한국계 미국인이라 한국적인 요소를 많이 넣었대요",
+          Udate : "58분 전",
+          commentCnt : 3,
+          likeCnt : 5,
+          comment: [
+            {
+              username: '내가그렇게나쁩니가',
+              avatar: 'https://img.hankyung.com/photo/202205/01.29874054.1.jpg',
+              comm: '와 잼겟다',
+              cUdate: "30분 전"
+            },
+            {
+              username: '레몬나르고빚갚으리오',
+              avatar: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA3MThfMjY2/MDAxNTYzMzgwNjcxOTAy.TpWBwm4jORLb_4A0GQPMW5VQzRut7wEWV3yQIke1_eUg.EaG0AdaC7pikldzeFeYNOE7jkXWnx5LBYlhcPQpuc9Yg.JPEG.chickilling/IMG_4806.jpg?type=w800',
+              comm: '웨이드 커여웡',
+              cUdate: "7분 전"
+            }
+          ],
+          tag : ["디즈니플러스","판타지","픽사","애니메이션","동심","OST","웨이브"]
         },
         {
           id: 3,
           user: {
-            username: 'user3',
-            avatar: 'https://via.placeholder.com/32',
+            username: '내가그렇게나쁩니가',
+            avatar: 'https://img.hankyung.com/photo/202205/01.29874054.1.jpg',
           },
-          imageUrl: 'https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/32E9/image/BA2Qyx3O2oTyEOsXe2ZtE8cRqGk.JPG',
-          content : "격렬하게 집에 가고 싶다",
+          imageUrl: 'https://i.namu.wiki/i/pBiDXzxOVJ9UuwNgF23Of_tsYa2eEajPIKkiFaGG_Zu23_Ogn0YZYhYK6tgCTVoigZ_3lQBa4xVJmAwIzM_C1w.gif',
+          storyHead : "리뷰",
+          title : "헤결 인생 영화라더니",
+          content : "ㄹㅇ임 다섯 번 봤음",
+          Udate : "23시간 전",
+          commentCnt : 2,
+          likeCnt : 6,
+          comment: [
+            {
+              username: 'bongsoon2',
+              avatar: '/image/bongsoon.jpg',
+              comm: 'ㅇㅈ',
+              cUdate: "3시간 전"
+            },
+            {
+              username: '영철',
+              avatar: 'https://item.kakaocdn.net/do/1ce61fe91e13f4121dac22893225ef9bf43ad912ad8dd55b04db6a64cddaf76d',
+              comm: 'ㅇㅇ',
+              cUdate: "45분 전"
+            }
+          ],
+          tag : ["넷플릭스", "드라마","로맨스","멜로", "범죄","왓챠","웨이브","티빙"]
+        },
+        {
+          id: 4,
+          user: {
+            username: '레몬나르고빚갚으리오',
+            avatar: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA3MThfMjY2/MDAxNTYzMzgwNjcxOTAy.TpWBwm4jORLb_4A0GQPMW5VQzRut7wEWV3yQIke1_eUg.EaG0AdaC7pikldzeFeYNOE7jkXWnx5LBYlhcPQpuc9Yg.JPEG.chickilling/IMG_4806.jpg?type=w800',
+          },
+          imageUrl: 'https://mblogthumb-phinf.pstatic.net/MjAyMTAxMDJfMjk5/MDAxNjA5NTMxMDUwMTE3.TV7r4X5XjA8dDKtpowE1rnAoNx3jX4smzr15SFjfZwUg.EcukZ0i-4ztlFd9przOobygN8y-DMmUoyqb22OZkCgEg.JPEG.doun0112/IMG_4315.jpg?type=w800',
+          storyHead : "추천",
+          title : "캐유캔 넷플릭스에서 이번 달까지래요",
+          content : "디카프리오 20대의 마지막 영화,,, 이때부터였을까요 디카프리오가 역변하기 시작한 게...",
+          Udate : "3일 전",
+          commentCnt : 1,
+          likeCnt : 3,
+          comment: [
+            {
+              username: '부릎뜨니숲이었섬',
+              avatar: 'https://i.pinimg.com/1200x/ae/93/c0/ae93c08efba7ec010d2b9ed2e023c7c4.jpg',
+              comm: '이거 실화 바탕이래융',
+              cUdate: "2일 전"
+            }
+          ],
+          tag : ["넷플릭스", "범죄", "드라마", "실화","왓챠","티빙","웨이브"]
         },
         
       ];
@@ -213,34 +482,59 @@ export default function Home(){
   return (
     <div style={{fontSize:'15px'}}>
       <ContainerBox>
-        <EditBtn ><A href='/plusSquare'><BiEditAlt /></A></EditBtn>
-        {/* <Head>
-            <div><a> 오늘 뭐 볼래¿</a></div>
-        </Head> */}
-        <h2><i>COMMUNITY</i></h2>
+      <EditBtn ><A href='/plusSquare'><BiEditAlt /></A></EditBtn>
+        <Head>
+            <div>커뮤니티</div>
+        </Head>
         <Lank>
             <LankTitle><b>인기글 🏆</b></LankTitle>
-              <LankMTitle></LankMTitle>
+              {showAnimated1 && <Animated1>
               <LankBody><div><LankNum><b><i>1</i></b></LankNum> 　<A href='#'><PostSpan>[추천]</PostSpan> 엘리멘탈 잼써요</A></div></LankBody>
+              </Animated1>}
+              {showAnimated2 && <Animated2>
               <LankBody><div><LankNum><b><i>2</i></b></LankNum> 　<A href='#'><PostSpan>[리뷰]</PostSpan> 헤결 인생 영화라더니</A></div></LankBody>
+              </Animated2>}
+              {showAnimated3 && <Animated3>
               <LankBody><div><LankNum><b><i>3</i></b></LankNum> 　<A href='#'><PostSpan>[추천]</PostSpan> 캐유캔 넷플릭스에서 이번 달까지래요</A></div></LankBody>
+              </Animated3>}
               
         </Lank>
       <Feed>
         {posts.map((post) => (
           <Post key={post.id}>
+            <PostTitle><PostSpan>[{post.storyHead}]</PostSpan> {post.title} <Udate>{post.Udate}</Udate></PostTitle>
             <PostHeader>
               <User>
                 <Avatar src={post.user.avatar} alt={post.user.username} />
                 <Username>{post.user.username}</Username>
               </User>
             </PostHeader>
+            
             <PostImage src={post.imageUrl} alt="Post" />
             <PostContent>{post.content}</PostContent>
+            <PostTag> <span className='sharp'>#</span>
+            {post.tag.map((tag, index) => (
+              <A href='#' key={index}><PostTagItem>{tag}</PostTagItem></A>
+            ))}
+            </PostTag>
             <PostActions>
-              <ActionButton><GoHeart /> <Num>5</Num> </ActionButton>
-              <ActionButton><SlBubble /> <Num>3</Num> </ActionButton>
+              <ActionButton><span style={{color:'#e24747'}}><GoHeart /></span> <Num>{post.likeCnt}</Num> </ActionButton>
+              <ActionButton onClick={() => (selectedPostId === post.id && commentOpen ? closeComment() : openComment(post.id))}><span style={{color:'#c5a8d7'}}><SlBubble /></span> <Num>{post.commentCnt}</Num> </ActionButton>
             </PostActions>
+            {selectedPostId === post.id && commentOpen && (
+            <PostCommentHead>
+              <Comment>댓글 <span style={{color:'#c5a8d7'}}>{post.commentCnt}</span></Comment>
+              {post.comment.map((comment, index) => (
+              <PostComment key={index}>
+                <CAvatar src={comment.avatar} />
+                <CUser>
+                  <CUsername><PostSpan>{comment.username}</PostSpan></CUsername> {comment.comm} <div className='cUdate'>{comment.cUdate}</div>
+                </CUser>
+              </PostComment>
+            ))}
+            <CommentPut><Input placeholder='댓글을 입력하세요'></Input><button className='btn'>입력</button></CommentPut>
+            </PostCommentHead>
+              )}
           </Post>
         ))}
       </Feed>

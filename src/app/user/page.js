@@ -108,10 +108,9 @@ export default function User(){
     <div>
       <Container>
         <ProfileHeader>
-          <Avatar src="https://via.placeholder.com/150" />
+          <Avatar src="/image/mang.jpg" />
           <UserInfo>
             <Username>꿀호떡</Username>
-            <Bio>Photographer and traveler</Bio>
             <Stats>
               <StatItem>
                 <StatValue>150</StatValue>
