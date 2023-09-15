@@ -1,13 +1,19 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import MenuBar from '../menubar';
+import { BiSolidBell } from 'react-icons/bi';
+import { MdSettings } from 'react-icons/md';
+
+
 const Container = styled.div`
-  padding: 20px;
+  max-width : 600px;
+  margin: 0px auto;
+  position: relative;
 `;
 
 const ProfileHeader = styled.div`
-  display: flex;
+ text-align : center;
   align-items: center;
   margin-bottom: 20px;
 `;
@@ -17,24 +23,28 @@ const Avatar = styled.img`
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 20px;
+  text-align : center;
+  margin-bottom: 8px;
+  margin-top: 49px;
 `;
 
 const UserInfo = styled.div``;
 
-const Username = styled.h2`
-  margin: 0;
+const Username = styled.div`
+text-align: center;
+font-size: 20px;
+margin: 5px 0 5px 0;
 `;
 
 const Bio = styled.p`
   margin: 0;
 `;
 
-const Stats = styled.ul`
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+const Stats = styled.div`
+  text-align:center;
+  font-size : 14px;
+  margin-bottom : 30px;
+  color : #9c91a5;
 `;
 
 const StatItem = styled.li`
@@ -98,70 +108,131 @@ const Post = styled.img`
   object-fit: cover;
 `;
 
+const Icon = styled.div`
+  position: absolute;
+  right: 4px;
+  top: 7px;
+  font-size: 23px;
+  letter-spacing: 3px;
+
+  .iconItem{
+    color : #9c91a5;
+  }
+`;
+
+const A = styled.a`
+  color: white;
+  text-decoration: none;
+`;
+
+const Like = styled.div`
+background-color: #40384b;
+max-width: 800px;
+height: 58px;
+border-radius: 8px;
+box-shadow: 2px 3px 11px -3px #302c35;
+margin: 10px 0;
+padding: 25px;
+display: grid;
+grid-template-columns: repeat(2, minmax(72px, 370px));
+grid-gap: 7px;
+text-align: center;
+
+.num{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.name{
+  font-size: 16px;
+  color: #a39ba3;
+}
+.left{
+  border-right: 1px solid #5d5065;
+}
+.right{
+
+}
+`;
+
+const PostBody = styled.div`
+  .title{
+    margin : 20px 0;
+    font-size: 17px;
+    font-weight : bold;
+  }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 5px;
+`;
+
+const GridItem = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
 export default function User(){
   const [activeTab, setActiveTab] = useState('posts');
-
+  const [images, setImages] = useState([]);
+  
   const handleEditProfile = () => {
     // Implement edit profile logic here
   };
+
+  const fetchImages = async () => {
+    const newImages = [
+      'https://i.namu.wiki/i/aRAQu813Cdn2FJ5Uo3bxqMPqxGnQX7qSHbGsQiiKBbzruZKKKXOjBmVQuietbkSvq54sGhe7RFKa16HqIsLyFQ.webp',
+      'https://t1.daumcdn.net/movie/72cfc7293390c63db16779b67097d8703d2a5628',
+      'https://upload.wikimedia.org/wikipedia/ko/2/23/%EC%BA%90%EC%B9%98_%EB%AF%B8_%EC%9D%B4%ED%94%84_%EC%9C%A0_%EC%BA%94_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg',
+    ];
+
+    setImages((prevImages) => [...prevImages, ...newImages]);
+
+    // Set 'hasMore' to false when there are no more images to load
+    // setHasMore(false);
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
   return (
     <div>
       <Container>
+      <Icon><A href='/heart'><span className='iconItem'><BiSolidBell /></span></A> <A href='#'><span className='iconItem'><MdSettings /></span></A></Icon>
         <ProfileHeader>
           <Avatar src="/image/mang.jpg" />
           <UserInfo>
             <Username>꿀호떡</Username>
-            <Stats>
-              <StatItem>
-                <StatValue>150</StatValue>
-                <StatLabel>Posts</StatLabel>
-              </StatItem>
-              <StatItem>
-                <StatValue>300</StatValue>
-                <StatLabel>Followers</StatLabel>
-              </StatItem>
-              <StatItem>
-                <StatValue>200</StatValue>
-                <StatLabel>Following</StatLabel>
-              </StatItem>
-            </Stats>
-            <EditProfileButton onClick={handleEditProfile}>
-              Edit Profile
-            </EditProfileButton>
+            <Stats>Follow <A href='#'>3</A> Follower <A href='#'>5</A></Stats>
           </UserInfo>
         </ProfileHeader>
-        <PostTabs>
-      <Tab
-        active={activeTab === 'posts'}
-        onClick={() => setActiveTab('posts')}
-      >
-        Posts
-      </Tab>
-      <Tab
-        active={activeTab === 'saved'}
-        onClick={() => setActiveTab('saved')}
-      >
-        Saved
-      </Tab>
-    </PostTabs>
-    {activeTab === 'posts' && (
-      <Posts>
-        {/* Replace the src attribute with the user's actual post image URLs */}
-        <Post src="https://via.placeholder.com/300" />
-        <Post src="https://via.placeholder.com/300" />
-        <Post src="https://via.placeholder.com/300" />
-        {/* Add more posts as needed */}
-      </Posts>
-    )}
-    {activeTab === 'saved' && (
-      <Posts>
-        {/* Replace the src attribute with the user's actual saved post image URLs */}
-        <Post src="https://via.placeholder.com/300" />
-        <Post src="https://via.placeholder.com/300" />
-        <Post src="https://via.placeholder.com/300" />
-        {/* Add more saved posts as needed */}
-      </Posts>
-    )}
+
+      <Like>
+        <div className='left'>
+          <div className='num'><A href='#'>5</A></div>
+          <div className='name'>찜한 작품</div>
+        </div>
+        <div className='right'>
+          <div className='num'><A href='#'>9</A></div>
+          <div className='name'>본 작품</div>
+        </div>
+      </Like>
+      
+      <PostBody>
+        <div className='title'>인생영화</div>
+        <Grid>
+          {images.map((image, index) => (
+            <GridItem key={index} src={image} alt="Thumbnail" />
+          ))}
+        </Grid>
+        <div className='title'>내 게시글</div>
+      </PostBody>
+
   </Container>
   <MenuBar />
 </div>

@@ -75,13 +75,13 @@ const MenuBar = () => {
       </MenuIcon>
       </a>
       </MenuBox> */}
-      <MenuBox>
+      {/* <MenuBox>
       <a href='/heart'>
       <MenuIcon>
         <FiHeart />
       </MenuIcon>
       </a>
-      </MenuBox>
+      </MenuBox> */}
       <MenuBox>
       <a href='/user'>
       <MenuIcon>
