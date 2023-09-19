@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import MenuBar from '../menubar';
-import { SlTag } from 'react-icons/sl';
 
 
 const Container = styled.div`

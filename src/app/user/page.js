@@ -4,12 +4,26 @@ import styled from '@emotion/styled';
 import MenuBar from '../menubar';
 import { BiSolidBell } from 'react-icons/bi';
 import { MdSettings } from 'react-icons/md';
-
+import { keyframes } from '@emotion/react';
 
 const Container = styled.div`
   max-width : 600px;
   margin: 0px auto;
   position: relative;
+  margin-bottom : 100px;
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
 `;
 
 const ProfileHeader = styled.div`
@@ -36,76 +50,11 @@ font-size: 20px;
 margin: 5px 0 5px 0;
 `;
 
-const Bio = styled.p`
-  margin: 0;
-`;
-
 const Stats = styled.div`
   text-align:center;
   font-size : 14px;
   margin-bottom : 30px;
   color : #9c91a5;
-`;
-
-const StatItem = styled.li`
-  margin-right: 20px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-const StatValue = styled.strong`
-  display: block;
-`;
-
-const StatLabel = styled.span``;
-
-const EditProfileButton = styled.button`
-  background-color: #6f5f7b;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 0;
-  cursor: pointer;
-  border-radius: 4px;
-`;
-
-const PostTabs = styled.div`
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 20px;
-`;
-
-const Tab = styled.button`
-  padding: 10px;
-  font-size: 18px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: ${(props) => (props.active ? 'white' : '#ccc')};
-  font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
-
-  &:hover {
-    color: white;
-  }
-`;
-
-const Posts = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-`;
-
-const Post = styled.img`
-  width: 100%;
-  object-fit: cover;
 `;
 
 const Icon = styled.div`
@@ -157,7 +106,7 @@ text-align: center;
 
 const PostBody = styled.div`
   .title{
-    margin : 20px 0;
+    margin : 40px 0 20px;
     font-size: 17px;
     font-weight : bold;
   }
@@ -175,25 +124,39 @@ const GridItem = styled.img`
   object-fit: cover;
 `;
 
+const Lank = styled.div`
+  margin: 0 auto;
+  max-width: 564px;
+  background: #29252d;
+  border-radius: 14px;
+  padding: 10px 20px;
+  box-shadow: 1px 4px 9px -2px #2b2a2a;
+`;
+
+const Animated1 = styled.div`
+  animation: ${fadeIn} 2s ease;
+  animation-delay: 0s;
+`;
+
+const LankBody = styled.div`
+  margin : 20px 0px;
+`;
+
+const PostSpan = styled.span`
+  color : #c5a8d7;
+`;
+
 export default function User(){
-  const [activeTab, setActiveTab] = useState('posts');
   const [images, setImages] = useState([]);
   
-  const handleEditProfile = () => {
-    // Implement edit profile logic here
-  };
-
   const fetchImages = async () => {
     const newImages = [
-      'https://i.namu.wiki/i/aRAQu813Cdn2FJ5Uo3bxqMPqxGnQX7qSHbGsQiiKBbzruZKKKXOjBmVQuietbkSvq54sGhe7RFKa16HqIsLyFQ.webp',
+      'https://images.justwatch.com/poster/240342747/s592/eob',
       'https://t1.daumcdn.net/movie/72cfc7293390c63db16779b67097d8703d2a5628',
-      'https://upload.wikimedia.org/wikipedia/ko/2/23/%EC%BA%90%EC%B9%98_%EB%AF%B8_%EC%9D%B4%ED%94%84_%EC%9C%A0_%EC%BA%94_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg',
+      'https://i.namu.wiki/i/J-AwFq-6xzVxDQpE3q3CwCL_QBzYfL6MPINXL1kWPeNlZXWNjayXfzXqqyi8luo4m4GM9Bsh_nhy9Ig3m5a8FQ.webp',
+      'https://t1.daumcdn.net/movie/01ad6a3cc60c11cfa581079492d6b121299f36ba'
     ];
-
     setImages((prevImages) => [...prevImages, ...newImages]);
-
-    // Set 'hasMore' to false when there are no more images to load
-    // setHasMore(false);
   };
 
   useEffect(() => {
@@ -231,8 +194,13 @@ export default function User(){
           ))}
         </Grid>
         <div className='title'>내 게시글</div>
+        <Lank>
+              <Animated1>
+              <LankBody><div><A href='#'><PostSpan>[추천]</PostSpan> 나는요 완젼히 붕괴됐서요</A></div></LankBody>
+              <LankBody><div><A href='#'><PostSpan>[추천]</PostSpan> 캐유캔 넷플릭스에서 이번 달까지래요</A></div></LankBody>
+              </Animated1>
+        </Lank>
       </PostBody>
-
   </Container>
   <MenuBar />
 </div>

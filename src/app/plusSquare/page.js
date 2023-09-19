@@ -4,23 +4,13 @@ import styled from '@emotion/styled';
 import MenuBar from '../menubar';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
-import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+
 const Container = styled.div`
   width : 400px;
   margin : 0 auto;
 `;
 
 const Form = styled.form``;
-
-// const Input = styled.input`
-//   display: block;
-//   width: 100%;
-//   padding: 12px 20px;
-//   margin: 0 0 20px;
-//   box-sizing: border-box;
-//   border: 1px solid #ccc;
-//   border-radius: 4px;
-// `;
 
 const Label = styled.label`
   display: block;
@@ -41,35 +31,6 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 4px;
   width : 100%
-`;
-
-const SocialShare = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-const SocialIcon = styled.div`
-  color: #fff;
-  background-color: #3b5998;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  &:hover {
-    background-color: #4c70ba;
-  }
 `;
 
 const Input = styled.input`
@@ -115,9 +76,6 @@ export default function PlusSquare(){
     // Implement the rest of the form submission logic here
   };
 
-  const handleSocialShare = (platform) => {
-    // Implement social sharing logic here
-  };
   return(
     <div>
       <Container>
@@ -139,28 +97,21 @@ export default function PlusSquare(){
             />
             )}
             <Label htmlFor="caption">제목</Label>
-            <Input type="text" id="caption" placeholder="제목" />
+            <Input type="text" id="caption" placeholder="제목을 입력해주세요" />
             <Label htmlFor="location">내용</Label>
             <Input
                      type="text"
                      id="location"
-                     placeholder="내용"
+                     placeholder="내용을 입력해주세요"
                    />
-            <Label htmlFor="tags">태그 선택</Label>
-
+            <Label htmlFor="tags">태그</Label>
+            <Input
+                     type="text"
+                     id="location"
+                     placeholder="검색될 태그를 입력해주세요"
+                   />
             <Button type="submit">등록</Button>
             </Form>
-            {/* <SocialShare>
-            <SocialIcon onClick={() => handleSocialShare('facebook')}>
-            <FaFacebookF />
-            </SocialIcon>
-            <SocialIcon onClick={() => handleSocialShare('twitter')}>
-            <FaTwitter />
-            </SocialIcon>
-            <SocialIcon onClick={() => handleSocialShare('instagram')}>
-            <FaInstagram />
-            </SocialIcon>
-            </SocialShare> */}
             </Container>
             <MenuBar />
             </div>

@@ -4,7 +4,8 @@ import styled from '@emotion/styled';
 import MenuBar from '../menubar';
 
 const Container = styled.div`
-  padding: 20px;
+  width : 600px;
+  margin : 0 auto;
 `;
 
 const ActivityTabs = styled.div`
@@ -21,7 +22,7 @@ const Tab = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  color: ${(props) => (props.active ? 'white' : '#ccc')};
+  color: ${(props) => (props.active ? 'white' : '#6d6273')};
   font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
 
   &:hover {
@@ -53,10 +54,10 @@ const ActivityContent = styled.div``;
 export default function Heart(){
   const [activeTab, setActiveTab] = useState('you');
   const [activities] = useState([
-    { type: 'like', user: 'john_doe', content: 'liked your post.' },
-    { type: 'comment', user: 'jane_doe', content: 'commented on your post.' },
-    { type: 'follow', user: 'bill_smith', content: 'started following you.' },
-    { type: 'mention', user: 'sarah_parker', content: 'mentioned you in a post.' },
+    { type: 'like', user: 'bongsoon2', content: '님이 당신의 글을 좋아합니다.' },
+    { type: 'comment', user: '망치', content: '님이 댓글을 남겼습니다.' },
+    { type: 'follow', user: '부릅뜨니숲이었으', content: '님이 팔로잉하였습니다.' },
+    { type: 'mention', user: '레몬나르고빚갚으리오', content: '님이 댓글을 남겼습니다.' },
   ]);
 
   const filteredActivities = activities.filter((activity) => {

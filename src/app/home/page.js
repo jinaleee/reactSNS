@@ -4,7 +4,6 @@ import styled from '@emotion/styled'; // @emotion/styled를 사용하는 경우 
 import MenuBar from '../menubar';
 import { GoHeart } from 'react-icons/go';
 import { SlBubble } from 'react-icons/sl';
-import { Container } from 'postcss';
 import { keyframes } from '@emotion/react';
 
 const fadeIn = keyframes`
@@ -481,7 +480,6 @@ export default function Home(){
               {showAnimated3 && <Animated3>
               <LankBody><div><LankNum><b><i>3</i></b></LankNum> 　<A href='#'><PostSpan>[추천]</PostSpan> 캐유캔 넷플릭스에서 이번 달까지래요</A></div></LankBody>
               </Animated3>}
-              
         </Lank>
       <Feed>
         {posts.map((post) => (

@@ -194,13 +194,12 @@ export default function Search(){
 
     setImages2((prevImages) => [...prevImages, ...newImages2]);
 
-    // Set 'hasMore' to false when there are no more images to load
-    // setHasMore(false);
+
   };
 
   const handleSearch = (event) => {
     console.log('Search:', event.target.value);
-    // Implement search functionality here
+
   };
 
   useEffect(() => {
@@ -222,99 +221,6 @@ export default function Search(){
     fetchImages2();
   }, []);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const dummyPosts = [
-        {
-          id: 1,
-          user: {
-            username: 'bongsoon2',
-            avatar: '/image/bongsoon.jpg',
-          },
-          imageUrl: 'https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/bKrs/image/ZcK48STGL2PfaDpfeSFhyf6eD80.gif',
-          storyHead : "추천",
-          title : "엘리멘탈 잼써요",
-          content : "감독이 한국계 미국인이라 한국적인 요소를 많이 넣었대요",
-          Udate : "3일전",
-          commentCnt : 3,
-          likeCnt : 5,
-          comment: [
-            {
-              username: '제가그렇게나쁩니가',
-              avatar: 'https://img.hankyung.com/photo/202205/01.29874054.1.jpg',
-              comm: '와 잼겟다',
-              cUdate: "1일 전"
-            },
-            {
-              username: '레몬나르고빚갚으리오',
-              avatar: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA3MThfMjY2/MDAxNTYzMzgwNjcxOTAy.TpWBwm4jORLb_4A0GQPMW5VQzRut7wEWV3yQIke1_eUg.EaG0AdaC7pikldzeFeYNOE7jkXWnx5LBYlhcPQpuc9Yg.JPEG.chickilling/IMG_4806.jpg?type=w800',
-              comm: '웨이드 커여웡',
-              cUdate: "9시간 전"
-            }
-          ],
-          tag : ["디즈니플러스","판타지","픽사","애니메이션","동심","OST","웨이브"]
-        },
-        {
-          id: 2,
-          user: {
-            username: '제가그렇게나쁩니가',
-            avatar: 'https://img.hankyung.com/photo/202205/01.29874054.1.jpg',
-          },
-          imageUrl: 'https://i.namu.wiki/i/pBiDXzxOVJ9UuwNgF23Of_tsYa2eEajPIKkiFaGG_Zu23_Ogn0YZYhYK6tgCTVoigZ_3lQBa4xVJmAwIzM_C1w.gif',
-          storyHead : "리뷰",
-          title : "헤결 인생 영화라더니",
-          content : "ㄹㅇ임 다섯 번 봤음",
-          Udate : "23시간 전",
-          commentCnt : 2,
-          likeCnt : 6,
-          comment: [
-            {
-              username: 'bongsoon2',
-              avatar: '/image/bongsoon.jpg',
-              comm: 'ㅇㅈ',
-              cUdate: "3시간 전"
-            },
-            {
-              username: '영철',
-              avatar: 'https://item.kakaocdn.net/do/1ce61fe91e13f4121dac22893225ef9bf43ad912ad8dd55b04db6a64cddaf76d',
-              comm: 'ㅇㅇ',
-              cUdate: "45분 전"
-            }
-          ],
-          tag : ["넷플릭스", "드라마","로맨스","멜로", "범죄","왓챠","웨이브","티빙"]
-        },
-        {
-          id: 3,
-          user: {
-            username: '레몬나르고빚갚으리오',
-            avatar: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA3MThfMjY2/MDAxNTYzMzgwNjcxOTAy.TpWBwm4jORLb_4A0GQPMW5VQzRut7wEWV3yQIke1_eUg.EaG0AdaC7pikldzeFeYNOE7jkXWnx5LBYlhcPQpuc9Yg.JPEG.chickilling/IMG_4806.jpg?type=w800',
-          },
-          imageUrl: 'https://mblogthumb-phinf.pstatic.net/MjAyMTAxMDJfMjk5/MDAxNjA5NTMxMDUwMTE3.TV7r4X5XjA8dDKtpowE1rnAoNx3jX4smzr15SFjfZwUg.EcukZ0i-4ztlFd9przOobygN8y-DMmUoyqb22OZkCgEg.JPEG.doun0112/IMG_4315.jpg?type=w800',
-          storyHead : "추천",
-          title : "캐유캔 넷플릭스에서 이번 달까지래요",
-          content : "디카프리오 20대의 마지막 영화,,, 이때부터였을까요 디카프리오가 역변하기 시작한 게...",
-          Udate : "58분 전",
-          commentCnt : 1,
-          likeCnt : 3,
-          comment: [
-            {
-              username: '부릎뜨니숲이었섬',
-              avatar: 'https://i.pinimg.com/1200x/ae/93/c0/ae93c08efba7ec010d2b9ed2e023c7c4.jpg',
-              comm: '이거 실화 바탕이래융',
-              cUdate: "3분 전"
-            }
-          ],
-          tag : ["넷플릭스", "범죄", "드라마", "실화","왓챠","티빙","웨이브"]
-        },
-        
-      ];
-
-      setPosts(dummyPosts);
-    };
-
-    fetchPosts();
-  }, []);
-  
   return (
     <div>
       <Container>
@@ -335,11 +241,7 @@ export default function Search(){
         </Best>
 
         <BestTag>인기글</BestTag>
-        {/* <A href='#'><Grid>
-            {images.map((image, index) => (
-              <GridItem key={index} src={image} alt="Thumbnail" />
-            ))}
-          </Grid></A> */}
+
           {showAnimated1 && <Animated1>
               <LankBody><div><LankNum><b><i>1</i></b></LankNum> 　<A href='#'><PostSpan>[추천]</PostSpan> 엘리멘탈 잼써요</A></div></LankBody>
               </Animated1>}

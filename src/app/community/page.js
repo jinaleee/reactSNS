@@ -195,21 +195,6 @@ const A = styled.a`
   text-decoration: none;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 185px));
-  grid-gap: 15px;
-  padding: 0 5px;
-`;
-
-const Grid2 = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 185px));
-  grid-gap: 15px;
-  padding: 0 5px;
-  text-align : center;
-`;
-
 const PostTitle = styled.div`
   padding: 23px 23px 17px 24px;
   font-size: 18px;
@@ -327,7 +312,7 @@ const EditBtn = styled.div`
     right: 1px;
 `;
 
-export default function Home(){
+export default function Community(){
 
   const [posts, setPosts] = useState([]);
 
