@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<h2>🚩 미니 프로젝트 ② - Node.js와 React를 이용한 SNS 사이트 제작 프로젝트</h2>
+- 두번째 미니 프로젝트로 React를 사용해 제작한 SNS 사이트 입니다. <br>
+- 아카데미 교육 과정의 시간 관계상 프론트엔드 부분만 구현된 상태입니다. <br>
+<br>
+<h2>🔎 프로젝트 개요</h2>
+- OTT 서비스 확산으로 인해 늘어난 수요층을 위한 영화 추천과 정보 제공. <br>
+- 영화에 대한 의견과 정보를 공유하고, 다른 사용자들과 소통할 수 있는 커뮤니티 기능 제공. <br>
+- 2023.09.12. ~ 2023.09.19. (총 8일, 1인)<br>
+<br>
+<h2>⚙ 개발환경 & 🛠 Stacks</h2>
+- 툴 : Visual Studio, Git <br>
+- 언어 : javaScript, node.js, React.js
+<br>
+<br>
+<h2>🖥 구현 이미지와 설명</h2>
+<h3>📌 메인 페이지</h3>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653485-548a4408-d800-4e45-8da8-8e6d8a36fa38.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNDg1LTU0OGE0NDA4LWQ4MDAtNGU0NS04ZGE4LThlNmQ4YTM2ZmEzOC5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05ZDUxZjUwMzUwMWEwNGRmYzAyMzNjYThlODJiMDU2YmU0YjE4ZTVlMjUwNzYwNzk0OWEwYTE1YjFiNjc4N2JjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.asFdg-E-arN4JS-IXUNSrPWE0PK0vHmZLnStxc3kl8I" width="90%"></img>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653489-609b1f81-4685-49c1-aff2-fb5531a0bd5c.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNDg5LTYwOWIxZjgxLTQ2ODUtNDljMS1hZmYyLWZiNTUzMWEwYmQ1Yy5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05ZWI0NzQ4YTdiMGU4ZjliOWE2MzJmYzk2YmM5MmY4MzExNTUyMzJmZGE1OTU0ZjNjM2VhMjZkM2NhMmMxNWYzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.KUyrtwLR3SJ2ZUbLFhQ3whEPOhzu1BJ54KLvVIz1dPg" width="90%"></img>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653491-49016449-020f-4c35-84c3-e57210eaaec1.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNDkxLTQ5MDE2NDQ5LTAyMGYtNGMzNS04NGMzLWU1NzIxMGVhYWVjMS5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wYWUxMGM5NzcwYzcwYzMyOTk5YjczMDlmMTg0OWJiMDkyOGJiNWI2YmUyMTBkNzM0NGVjMzI0ODQxYzUwMGEyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.NT3YWSkjL0LciSdFsye9myIxSR8V7mT6W-pDNKW3SbU" width="90%"></img>
+- 영화와 커뮤니티 게시글 각 랭킹 3위까지 표시.<br>
+- 애니메이션 효과로 차례대로 부드럽게 나타나는 효과 적용. <br>
+- 스크롤 하단엔 최신글 표시<br>
+<br>
+<h3>📌 로그인과 회원가입 페이지</h3>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653478-4f4cd971-774a-41e9-8615-29d40f3e2545.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNDc4LTRmNGNkOTcxLTc3NGEtNDFlOS04NjE1LTI5ZDQwZjNlMjU0NS5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNGFmNTg5OWUyOTAzZmVkM2ExZDM4NGI0Y2IxYmQ1MjFkMzViOTQ0MzU3OWNiNmU5Y2VhNjFmZTJkNDczY2I0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.SqSHpXwJuhJ4lLQuNbdtMdE0Igj0Mr8emC2s1dWbQes" width="90%"></img>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653482-35930ebb-0374-4872-ae86-c4904d028587.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNDgyLTM1OTMwZWJiLTAzNzQtNDg3Mi1hZTg2LWM0OTA0ZDAyODU4Ny5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jNjllZDdkNzllNGFmYTZhMmRiOWI1NTY2YjNkZWYyYzA0NDI2ZTNlOWFjY2Y2ZDUxZTdkZGQ0NGZiZDgwOTA5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.TEBUOt9550yMQ-AKC9N0-O1AATpDOST_pX2mpgWrWdE" width="90%"></img>
+<br>
+<h3>📌 영화 탭 페이지</h3>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653495-bbd67501-4c08-4190-b775-08094b488ba4.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNDk1LWJiZDY3NTAxLTRjMDgtNDE5MC1iNzc1LTA4MDk0YjQ4OGJhNC5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01ZDM4ZDZjZDc2YTBkZGVhYjkzN2VkYmVmYjhmZDIzNjQ4MGEwOWRlZWI0Y2Q0ZDE4MjBmZjA3YmY0MmJjMjJhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.DAQ9jzSOuFKR5c2lqcDfxgNw9Zo8-lspUTPVj2nDWkg" width="90%"></img>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653497-26c4506b-4e61-46b7-b867-72ae9b79240f.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNDk3LTI2YzQ1MDZiLTRlNjEtNDZiNy1iODY3LTcyYWU5Yjc5MjQwZi5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04YjY3MDU2MTk4YWFlY2RjYjIzZTg5YzQ3M2U4OWY3YjUxMDhkNTgyNGE3OGY2NTIxZTYyOTdjNTkxZDRjNWFhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.Y1RTpstDoavh92ZXdTjRAf3SLeMyOcMghS-W6oWqzfc" width="90%"></img>
+- 각 테마별 추천 영화 리스트 표시.<br>
+<br>
+<h3>📌 커뮤니티 탭 페이지</h3>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653500-78b40ba1-2cb5-4068-a7d2-34e482d64422.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNTAwLTc4YjQwYmExLTJjYjUtNDA2OC1hN2QyLTM0ZTQ4MmQ2NDQyMi5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iZjBmMWFlNjBmNTY5ZTM3ZjBlZWExNDNkZmI2NmRiZmY5MTI0ZjIyMWY4YTdlMDA1OWM1ZjExNzI1NmU0MThjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.0dxDcvZxDjFNvb23KIo3YYWDAXmOEbpm09t7__STkSU" width="90%"></img>
+- 최신글 순으로 표시. <br>
+- 태그 표시, 좋아요, 댓글 표시. <br>
+- 댓글 아이콘 클릭시 댓글 창 노출. <br>
+<br>
+<h3>📌 검색 페이지</h3>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653508-de7b1115-bb27-4133-a5e6-15b979d7dfba.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNTA4LWRlN2IxMTE1LWJiMjctNDEzMy1hNWU2LTE1Yjk3OWQ3ZGZiYS5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yNTkyYWE4MzU4MmU0MWZmNzEzMDU4MDYxM2FiN2NhYWJhNGVhOWJhNWJkMTMwODU5Njk5NmFjMDc2NzgwYzhjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.FSeiLtX1fn9FST1dkHOFD6gAoNYUleSAA267CVwBDW0" width="90%"></img>
+- 인기 태그, 글, 영화 표시. <br>
+- 영화 리스트 무한 스크롤로 표시.<br>
+<br>
+<h3>📌 마이페이지</h3>
+<img src = "https://private-user-images.githubusercontent.com/137017258/309653510-ff4fcda2-4a5e-43c3-992a-06d9ae64e570.JPG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk1MzQzMDIsIm5iZiI6MTcwOTUzNDAwMiwicGF0aCI6Ii8xMzcwMTcyNTgvMzA5NjUzNTEwLWZmNGZjZGEyLTRhNWUtNDNjMy05OTJhLTA2ZDlhZTY0ZTU3MC5KUEc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNFQwNjMzMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYzI2ZmNmZWUyZDRiM2U1ZjYxODhmZTNhMjRkMzIxZGI0MWMzYzdiMzFhZWQ2NWVjODgxNzU4NWU4NjNmZTNhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.EoZmf3R2pzR5Sq2ISzyWltceEYa-VBmQ551zsRBsods" width="90%"></img>
+- 프로필, 팔로워와 팔로잉 표시. <br>
+- 내가 추가한 인생영화 리스트 표시. 작성한 게시글 표시.<br>
+- 찜한 작품, 본 작품 수 표시.<br>
+<br>
